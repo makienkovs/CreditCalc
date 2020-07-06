@@ -363,7 +363,6 @@ public class MainActivity extends AppCompatActivity {
         notes.add(n0);
 
         Note np = new Note();
-        np.setDate(pickedDate);
         np.setRemains(amount);
 
         double mainPayment;
@@ -453,6 +452,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startSchedule(View v) {
+        Note np = new Note();
+        np.setDate(pickedDate);
+        for (int i = 1; i <= period; i++) {
+            Note n = notes.get(i);
+            n.setDate(incrementDate(np.getDate()));
+            np = n;
+        }
+
         Intent intent = new Intent(MainActivity.this, Schedule.class);
         intent.putExtra("amount", amount);
         intent.putExtra("period", period);
