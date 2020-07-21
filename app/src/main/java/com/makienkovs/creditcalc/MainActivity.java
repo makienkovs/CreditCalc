@@ -380,7 +380,6 @@ public class MainActivity extends AppCompatActivity {
             remainsPayment -= mainPayment;
 
             n.setNumber(i);
-            n.setDate(incrementDate(np.getDate()));
             n.setAmount(payment);
             n.setMain(mainPayment);
             n.setPercent(percentPayment);
